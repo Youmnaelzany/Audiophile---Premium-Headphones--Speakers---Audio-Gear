@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import Header from "@/components/navigation/Header";
+import HeaderWrapper from "@/components/navigation/HeaderWrapper";
 
 import "./globals.css";
 
@@ -10,6 +10,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+  ),
   title: "Audiophile – Premium Headphones, Speakers & Audio Gear",
   description:
     "Explore Audiophile’s collection of high-end headphones, speakers, and audio accessories. Experience immersive sound quality, sleek design, and cutting-edge technology — all in one place.",
@@ -59,8 +62,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${manrope.className} antialiased`}>
-        <Header />
-        <div className="mx-auto max-w-7xl">{children}</div>
+        <HeaderWrapper />
+        <main
+          id="main-content"
+          className="mx-auto max-w-7xl px-6 md:px-8 lg:px-12"
+        >
+          {children}
+        </main>
       </body>
     </html>
   );
