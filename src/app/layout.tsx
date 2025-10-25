@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
+import Footer from "@/components/navigation/Footer";
 import HeaderWrapper from "@/components/navigation/HeaderWrapper";
 
 import "./globals.css";
@@ -63,12 +64,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${manrope.className} antialiased`}>
         <HeaderWrapper />
-        <main
-          id="main-content"
-          className="mx-auto max-w-7xl px-6 md:px-8 lg:px-12"
-        >
+        <main id="main-content" className="mx-auto min-h-screen max-w-360">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

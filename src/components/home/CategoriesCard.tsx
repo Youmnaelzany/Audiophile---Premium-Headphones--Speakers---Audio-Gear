@@ -29,7 +29,10 @@ export const links = [
 
 const CategoriesCard = () => {
   return (
-    <section aria-labelledby="categories-heading" className="space-y-16">
+    <section
+      aria-labelledby="categories-heading"
+      className="max-w-280 space-y-16"
+    >
       <div className="text-center">
         <h2 id="categories-heading" className="mb-4 text-4xl font-bold">
           Shop by Category
@@ -57,12 +60,12 @@ const CategoriesCard = () => {
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
-            <h3 className="text-[0.8125rem] leading-[1.5625rem] font-bold tracking-[0.125rem]">
+            <h3 className="text-[0.8125rem] leading-6.25 font-bold tracking-[0.125rem]">
               {label}
             </h3>
             <Link
               href={href}
-              className="flex items-center gap-2 text-[0.8125rem] leading-[1.5625rem] font-bold tracking-[0.125rem] text-black/50 transition-colors hover:text-[#D87D4A] focus:text-[#D87D4A] focus:outline-none"
+              className="flex items-center gap-2 text-[0.8125rem] leading-6.25 font-bold tracking-[0.125rem] text-black/50 transition-colors hover:text-[#D87D4A] focus:text-[#D87D4A] focus:outline-none"
               aria-label={`Shop ${label.toLowerCase()}`}
             >
               Shop <ChevronRight className="size-4 text-[#D87D4A]" />

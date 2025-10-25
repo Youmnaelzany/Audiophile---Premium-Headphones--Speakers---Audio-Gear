@@ -36,31 +36,26 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
         role="banner"
         className={`${
           isHomePage ? "bg-[#141414]" : "bg-black"
-        } border-b border-white/20 px-6 py-8 md:px-10 lg:px-12`}
+        } mx-auto max-w-360 px-6 py-8 md:px-10 lg:px-12`}
       >
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
+        <div className="mx-auto flex w-full items-center justify-between">
           <div className="flex items-center gap-8">
-            {/* Mobile menu for small screens */}
+            {/* Mobile Menu */}
             <MobileMenu />
 
             {/* Logo */}
-            <Link
-              href="/"
-              className="rounded-md focus:ring-2 focus:ring-[#D87D4A] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
-              aria-label="Audiophile - Go to homepage"
-            >
+            <Link href="/" aria-label="Audiophile - Go to homepage">
               <Image
                 src="/shared/desktop/logo.svg"
                 alt="Audiophile Logo"
                 width={143}
                 height={25}
                 priority
-                sizes="143px"
               />
             </Link>
           </div>
 
-          {/* Main Navigation */}
+          {/* Navigation */}
           <nav
             role="navigation"
             aria-label="Main navigation"
@@ -71,6 +66,7 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
               role="menubar"
             >
               {links.map(({ href, label }) => {
+                // Match both exact "/" and category pages like "/category/headphones"
                 const isActive =
                   pathname === href ||
                   (href !== "/" && pathname?.startsWith(href));
@@ -80,13 +76,12 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
                     <Link
                       href={href}
                       role="menuitem"
-                      className={`cursor-pointer rounded-md px-2 py-1 text-[0.8125rem] leading-[1.5625rem] font-bold tracking-[0.125rem] duration-300 ease-in-out focus:ring-2 focus:ring-[#D87D4A] focus:ring-offset-2 focus:ring-offset-black focus:outline-none ${
+                      aria-current={isActive ? "page" : undefined}
+                      className={`cursor-pointer px-2 py-1 text-[0.8125rem] font-bold tracking-[0.125rem] duration-300 ease-in-out ${
                         isActive
                           ? "text-[#D87D4A]"
                           : "text-white hover:text-[#D87D4A]"
                       }`}
-                      aria-label={`Navigate to ${label.toLowerCase()}`}
-                      aria-current={isActive ? "page" : undefined}
                     >
                       {label}
                     </Link>
@@ -96,14 +91,12 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
             </ul>
           </nav>
 
-          {/* Shopping cart */}
+          {/* Shopping Cart */}
           <button
-            className="cursor-pointer rounded-md p-2 text-white duration-300 ease-in-out hover:text-[#D87D4A] focus:ring-2 focus:ring-[#D87D4A] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+            className="cursor-pointer rounded-md p-2 text-white duration-300 ease-in-out hover:text-[#D87D4A]"
             aria-label="Open shopping cart"
-            aria-expanded="false"
           >
             <ShoppingCart className="h-6 w-6" />
-            <span className="sr-only">Shopping cart</span>
           </button>
         </div>
       </header>
