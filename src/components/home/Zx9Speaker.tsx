@@ -25,11 +25,10 @@ const Zx9Speaker = () => {
         />
       </picture>
       <div className="flex max-w-[280px] flex-col items-center justify-center gap-6 text-center md:max-w-[349px] lg:items-start lg:justify-start lg:self-center lg:text-left">
-        <h2 className="w-56 text-4xl leading-10 font-bold tracking-[1.29px] text-white md:w-auto md:text-[3.5rem] md:leading-14.5 md:tracking-[2px]">
+        <h2 className="w-56 text-4xl leading-10 font-bold tracking-[1.29px] text-white uppercase md:w-auto md:text-[3.5rem] md:leading-14.5 md:tracking-[2px]">
           ZX9 speaker
         </h2>
         <p className="text-[15px] leading-[auto] font-medium tracking-[1.07px] text-white/75 lg:text-[18px] lg:tracking-[1.20px]">
-          {" "}
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>

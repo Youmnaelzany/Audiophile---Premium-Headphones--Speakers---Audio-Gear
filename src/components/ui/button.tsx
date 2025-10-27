@@ -23,7 +23,7 @@ const buttonVariants = cva(
         mainOne:
           "bg-[#D87D4A] rounded-none hover:bg-[#FBAF85] text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
         mainTwo:
-          "bg-transparent rounded-none border border-black hover:bg-black hover:border-none text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
+          "bg-transparent rounded-none border border-black hover:bg-black hover:border-none text-black hover:text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
         mainThere:
           "bg-black rounded-none hover:bg-[#4C4C4C]  text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
       },
