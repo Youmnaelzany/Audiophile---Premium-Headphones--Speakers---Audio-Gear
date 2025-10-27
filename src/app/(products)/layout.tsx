@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import BestGear from "@/components/home/BestGear";
+
 export default function ProductLayout({
   children,
 }: {
@@ -12,7 +14,10 @@ export default function ProductLayout({
           ← Go Back
         </Link>
       </div>
-      <div className="">{children}</div>
+      <div className="">
+        {children}
+        <BestGear />
+      </div>
     </section>
   );
 }

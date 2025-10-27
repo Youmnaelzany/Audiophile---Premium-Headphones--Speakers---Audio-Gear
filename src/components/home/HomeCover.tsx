@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const HomeCover = () => {
   return (
-    <section className="relative min-h-screen">
+    <section className="relative">
       <picture className="relative block h-[700px] w-full overflow-hidden">
         <source
           media="(min-width:1400px)"
