@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const BestGear = () => {
   return (
-    <div className="flex w-full flex-col-reverse items-center justify-between gap-10 px-6 py-32 md:gap-16 md:px-10 lg:flex-row lg:px-36">
+    <div className="flex w-full flex-col-reverse items-center justify-between gap-10 px-6 py-30 md:gap-16 md:px-10 md:py-24 lg:flex-row lg:px-36 lg:py-50">
       <div className="flex flex-col items-center justify-between gap-9 text-center md:gap-8 lg:items-start lg:text-left">
-        <h2 className="max-w-[327px] text-[28px] leading-[auto] font-bold tracking-[1px] text-black uppercase md:max-w-[573px] md:text-[2.5rem] md:leading-11 md:tracking-[1.43px] lg:max-w-[445px]">
-          Bringing you the best audio
-          <span className="text-[#D87D4A]">gear</span>
+        <h2 className="max-w-[327px] text-[28px] leading-tight font-bold tracking-[1px] text-black uppercase md:max-w-[573px] md:text-[2.5rem] md:leading-11 md:tracking-[1.43px] lg:max-w-[445px]">
+          Bringing you the <span className="text-[#D87D4A]">best</span> audio
+          gear
         </h2>
         <p className="max-w-[327px] text-[15px] leading-6.25 font-medium tracking-normal text-black/50 md:max-w-[573px] lg:max-w-[445px]">
           Located at the heart of New York City, Audiophile is the premier store

@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import BestGear from "@/components/home/BestGear";
+import CategoriesCard from "@/components/home/CategoriesCard";
 
 export default function ProductLayout({
   children,
@@ -9,15 +8,9 @@ export default function ProductLayout({
 }) {
   return (
     <section className="">
-      <div className="">
-        <Link href="/" className="">
-          ← Go Back
-        </Link>
-      </div>
-      <div className="">
-        {children}
-        <BestGear />
-      </div>
+      {children}
+      <CategoriesCard />
+      <BestGear />
     </section>
   );
 }
