@@ -35,7 +35,7 @@ const HomeCover = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Button type="button" variant="mainOne">
+        <Button type="button" variant="mainOne" size={"lg"}>
           <Link href="/">See product</Link>
         </Button>
       </div>

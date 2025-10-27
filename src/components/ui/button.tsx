@@ -24,11 +24,13 @@ const buttonVariants = cva(
           "bg-[#D87D4A] rounded-none hover:bg-[#FBAF85] text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
         mainTwo:
           "bg-transparent rounded-none border border-black hover:bg-black hover:border-none text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
+        mainThere:
+          "bg-black rounded-none hover:bg-[#4C4C4C]  text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+        lg: "h-10  px-6 has-[>svg]:px-4",
         icon: "size-9",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
