@@ -31,7 +31,7 @@ const CategoriesCard = () => {
   return (
     <section
       aria-labelledby="categories-heading"
-      className="mx-auto max-w-277.5 px-6 pt-30 md:px-10 md:pt-24 lg:pt-40"
+      className="mx-auto max-w-277.5 px-6 md:px-10"
     >
       <div className="flex flex-col items-center justify-center gap-16 md:flex-row md:justify-between md:gap-2.5 lg:gap-7.5">
         {links.map(({ href, label, image, width, height }) => (

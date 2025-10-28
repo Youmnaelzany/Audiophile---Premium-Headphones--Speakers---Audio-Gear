@@ -25,7 +25,7 @@ const buttonVariants = cva(
         mainTwo:
           "bg-transparent rounded-none border border-black hover:bg-black hover:border-none text-black hover:text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
         mainThere:
-          "bg-black rounded-none hover:bg-[#4C4C4C]  text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
+          "bg-black rounded-none hover:bg-[#4C4C4C] text-white font-bold leading-[auto] tracking-[1px] text-[13px]",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
