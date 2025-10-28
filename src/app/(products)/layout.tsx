@@ -9,7 +9,11 @@ export default function ProductLayout({
   return (
     <section className="">
       {children}
-      <CategoriesCard />
+      {/* Breadcrumb for product + category routes */}
+
+      <div className="pt-[120px] lg:pt-[160px]">
+        <CategoriesCard />
+      </div>
       <BestGear />
     </section>
   );
