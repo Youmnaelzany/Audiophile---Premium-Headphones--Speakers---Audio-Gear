@@ -7,6 +7,25 @@ import CategoryCard from "@/components/category/CategoryCard";
 import { Button } from "@/components/ui/button";
 import data from "@/data/data.json";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}) {
+  const { category } = await params;
+  const title = `${category.charAt(0).toUpperCase() + category.slice(1)} | Audiophile Shop`;
+  const description = `Browse all ${category} products in the Audiophile shop. See features, details, and more.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+  };
+}
+
 export default async function CategoryPage({
   params,
 }: {

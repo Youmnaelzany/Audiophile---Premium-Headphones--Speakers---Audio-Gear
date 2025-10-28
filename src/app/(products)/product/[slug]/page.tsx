@@ -6,6 +6,40 @@ import QuantitySelector from "@/components/ui/QuantitySelector";
 import { Button } from "@/components/ui/button";
 import data from "@/data/data.json";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const product = data.find((item) => item.slug === slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found | Audiophile Shop",
+      description: "Sorry, the requested product could not be found.",
+    };
+  }
+
+  const title = `${product.name} | Audiophile Shop`;
+  const description = product.description;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: product.image.desktop,
+          alt: product.name,
+        },
+      ],
+    },
+  };
+}
+
 export default async function ProductPage({
   params,
 }: {
@@ -208,7 +242,6 @@ export default async function ProductPage({
             ))}
           </div>
         </div>
-        ;
       </div>
     </section>
   );

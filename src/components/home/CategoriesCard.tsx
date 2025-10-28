@@ -44,9 +44,9 @@ const CategoriesCard = () => {
               alt={`${label} category thumbnail`}
               width={width}
               height={height}
-              className="absolute -top-10 transition-transform group-hover:scale-110"
+              className="absolute -top-12 h-auto w-[135px] transition-transform group-hover:scale-110 md:-top-14 md:h-auto md:w-[150px] lg:-top-20 lg:h-auto lg:w-[200px]"
               loading="lazy"
-              sizes="(max-width: 768px) 327px, 223px"
+              sizes="(max-width: 768px) 135px, (max-width: 1024px) 150px, 200px"
             />
             <h3 className="text-[15px] leading-[auto] font-bold tracking-[1.07px] lg:text-[18px] lg:tracking-[1.20px]">
               {label}
