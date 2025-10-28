@@ -35,7 +35,7 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
       <header
         role="banner"
         className={`${
-          isHomePage ? "bg-[#141414]" : "bg-black"
+          isHomePage ? "bg-[#121212]" : "bg-black"
         } mx-auto max-w-360 px-6 py-8 md:px-10 lg:px-12`}
       >
         <div className="mx-auto flex w-full items-center justify-between">
@@ -99,6 +99,7 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
             <ShoppingCart className="h-6 w-6" />
           </button>
         </div>
+        <div className="relative -bottom-8 left-0 border-b border-b-white/20"></div>
       </header>
     </>
   );
