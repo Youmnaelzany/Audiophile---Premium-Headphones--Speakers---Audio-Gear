@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import ProductsBreadcrumb from "@/components/navigation/ProductsBreadcrumb";
 import QuantitySelector from "@/components/ui/QuantitySelector";
@@ -24,13 +25,14 @@ export default async function ProductPage({
       </div>
       {/* Product header */}
       <div className="mx-auto space-y-[88px] px-6 pt-14 md:space-y-[120px] md:px-10 md:pt-16 lg:space-y-[160px] lg:px-36 lg:pt-28">
+        {/* Pictures & Details */}
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <picture>
             <source media="(min-width:1024px)" srcSet={product.image.desktop} />
             <source media="(min-width:768px)" srcSet={product.image.tablet} />
             <Image
               src={product.image.mobile}
-              alt="ZX9 speaker"
+              alt={product.name}
               width={327}
               height={327}
               className="rounded-md md:h-[480px] md:w-[281px] lg:h-[560px] lg:w-[540px]"
@@ -61,6 +63,7 @@ export default async function ProductPage({
             </div>
           </div>
         </div>
+        {/*  Features & Included items */}
         <div className="flex max-w-[1110px] flex-col justify-between gap-y-[88px] md:gap-y-[120px] lg:flex-row">
           {/* Features */}
           <div className="space-y-8">
@@ -103,6 +106,109 @@ export default async function ProductPage({
             </ul>
           </div>
         </div>
+        {/* Gallery */}
+        <div className="flex flex-col gap-5 md:flex-row">
+          {/* 2 Pictures */}
+          <div className="flex flex-col gap-5 lg:gap-8">
+            <picture>
+              <source
+                media="(min-width:1024px)"
+                srcSet={product.gallery.first.desktop}
+              />
+              <source
+                media="(min-width:768px)"
+                srcSet={product.gallery.first.tablet}
+              />
+              <Image
+                src={product.gallery.first.mobile}
+                alt={product.name}
+                width={327}
+                height={174}
+                className="rounded-md md:w-[277px] lg:h-[280px] lg:w-[445px]"
+                priority
+              />
+            </picture>
+            <picture>
+              <source
+                media="(min-width:1024px)"
+                srcSet={product.gallery.second.desktop}
+              />
+              <source
+                media="(min-width:768px)"
+                srcSet={product.gallery.second.tablet}
+              />
+              <Image
+                src={product.gallery.second.mobile}
+                alt={product.name}
+                width={327}
+                height={174}
+                className="rounded-md md:w-[277px] lg:h-[280px] lg:w-[445px]"
+                priority
+              />
+            </picture>
+          </div>
+          {/* 1 Pictures */}
+          <picture>
+            <source
+              media="(min-width:1024px)"
+              srcSet={product.gallery.third.desktop}
+            />
+            <source
+              media="(min-width:768px)"
+              srcSet={product.gallery.third.tablet}
+            />
+            <Image
+              src={product.gallery.third.mobile}
+              alt={product.name}
+              width={327}
+              height={368}
+              className="rounded-md md:w-[395px] lg:h-[592px] lg:w-[635px]"
+              priority
+            />
+          </picture>
+        </div>
+        {/* You may also like */}
+        <div className="flex flex-col items-center justify-center gap-10 md:gap-14 lg:gap-16">
+          <h2 className="text-2xl leading-9 font-bold tracking-[0.88px] text-black uppercase md:text-[32px] md:tracking-[1.14px]">
+            You may also like
+          </h2>
+          <div className="flex flex-col items-center justify-between gap-[56px] md:flex-row md:gap-[11px] lg:gap-[30px]">
+            {product.others.map((other) => (
+              <div
+                className="flex flex-col items-center justify-between gap-8 md:gap-10"
+                key={other.slug}
+              >
+                <picture>
+                  <source
+                    media="(min-width:1024px)"
+                    srcSet={other.image.desktop}
+                  />
+                  <source
+                    media="(min-width:768px)"
+                    srcSet={other.image.tablet}
+                  />
+                  <Image
+                    src={other.image.mobile}
+                    alt={other.name}
+                    width={327}
+                    height={120}
+                    className="rounded-md md:h-[318px] md:w-[223px] lg:w-[350px]"
+                    priority
+                  />
+                </picture>
+                <h3 className="text-2xl leading-[auto] font-bold tracking-[1.71px] text-black uppercase">
+                  {other.name}
+                </h3>
+                <Button type="button" variant={"mainOne"} size={"lg"}>
+                  <Link href={`/product/${other.slug}`} className="">
+                    See Product
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+        ;
       </div>
     </section>
   );
