@@ -10,9 +10,9 @@ import data from "@/data/data.json";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ category: string }>;
+  params: { category: string };
 }) {
-  const { category } = await params;
+  const { category } = params;
   const title = `${category.charAt(0).toUpperCase() + category.slice(1)} | Audiophile Shop`;
   const description = `Browse all ${category} products in the Audiophile shop. See features, details, and more.`;
 
@@ -29,9 +29,9 @@ export async function generateMetadata({
 export default async function CategoryPage({
   params,
 }: {
-  params: Promise<{ category: string }>;
+  params: { category: string };
 }) {
-  const { category } = await params;
+  const { category } = params;
 
   // Filter products by category
   const products = data.filter((item) => item.category === category);
@@ -82,10 +82,8 @@ export default async function CategoryPage({
               <p className="text-[15px] leading-[25px] font-medium tracking-normal text-black/50">
                 {product.description}
               </p>
-              <Button type="button" variant={"mainOne"} size={"lg"}>
-                <Link href={`/product/${product.slug}`} className="">
-                  See Product
-                </Link>
+              <Button asChild variant={"mainOne"} size={"lg"}>
+                <Link href={`/product/${product.slug}`}>See Product</Link>
               </Button>
             </div>
           </div>

@@ -10,7 +10,6 @@ export default function ProductLayout({
     <section className="">
       {children}
       {/* Breadcrumb for product + category routes */}
-
       <div className="pt-[120px] lg:pt-[160px]">
         <CategoriesCard />
       </div>

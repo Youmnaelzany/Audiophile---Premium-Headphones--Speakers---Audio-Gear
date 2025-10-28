@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
+import { CartProvider } from "@/components/cart/CartProvider";
 import Footer from "@/components/navigation/Footer";
 import HeaderWrapper from "@/components/navigation/HeaderWrapper";
 
@@ -63,11 +64,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${manrope.className} antialiased`}>
-        <HeaderWrapper />
-        <main id="main-content" className="mx-auto min-h-screen max-w-360">
-          {children}
-        </main>
-        <Footer />
+        <CartProvider>
+          <HeaderWrapper />
+          <main id="main-content" className="mx-auto min-h-screen max-w-360">
+            {children}
+          </main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

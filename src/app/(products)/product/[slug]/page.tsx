@@ -1,17 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import AddToCartClient from "@/components/cart/AddToCartClient";
 import ProductsBreadcrumb from "@/components/navigation/ProductsBreadcrumb";
-import QuantitySelector from "@/components/ui/QuantitySelector";
 import { Button } from "@/components/ui/button";
 import data from "@/data/data.json";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const product = data.find((item) => item.slug === slug);
 
   if (!product) {
@@ -43,15 +43,14 @@ export async function generateMetadata({
 export default async function ProductPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const product = data.find((item) => item.slug === slug);
 
   if (!product) {
     return <p>Product not found.</p>;
   }
-
   return (
     <section className="">
       <div className="px-6 pt-16 md:px-10 lg:px-36">
@@ -88,12 +87,14 @@ export default async function ProductPage({
             <p className="text-[18px] leading-[auto] font-bold tracking-[1.20px] text-black">
               ${product.price}
             </p>
+            {/* Add to Cart Button */}
             <div className="flex items-center gap-4">
-              <QuantitySelector />
-              {/* Add Button */}
-              <Button variant={"mainOne"} type="button" size={"lg"}>
-                Add to Cart
-              </Button>
+              <AddToCartClient
+                id={product.slug}
+                name={product.name}
+                price={product.price}
+                image={product.image.desktop}
+              />
             </div>
           </div>
         </div>
@@ -159,7 +160,6 @@ export default async function ProductPage({
                 width={327}
                 height={174}
                 className="rounded-md md:w-[277px] lg:h-[280px] lg:w-[445px]"
-                priority
               />
             </picture>
             <picture>
@@ -177,7 +177,6 @@ export default async function ProductPage({
                 width={327}
                 height={174}
                 className="rounded-md md:w-[277px] lg:h-[280px] lg:w-[445px]"
-                priority
               />
             </picture>
           </div>
@@ -197,7 +196,6 @@ export default async function ProductPage({
               width={327}
               height={368}
               className="rounded-md md:w-[395px] lg:h-[592px] lg:w-[635px]"
-              priority
             />
           </picture>
         </div>
@@ -227,16 +225,13 @@ export default async function ProductPage({
                     width={327}
                     height={120}
                     className="rounded-md md:h-[318px] md:w-[223px] lg:w-[350px]"
-                    priority
                   />
                 </picture>
                 <h3 className="text-2xl leading-[auto] font-bold tracking-[1.71px] text-black uppercase">
                   {other.name}
                 </h3>
-                <Button type="button" variant={"mainOne"} size={"lg"}>
-                  <Link href={`/product/${other.slug}`} className="">
-                    See Product
-                  </Link>
+                <Button asChild variant={"mainOne"} size={"lg"}>
+                  <Link href={`/product/${other.slug}`}>See Product</Link>
                 </Button>
               </div>
             ))}

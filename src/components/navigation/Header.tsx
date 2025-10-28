@@ -3,10 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-import { ShoppingCart } from "lucide-react";
+import dynamic from "next/dynamic";
 
 import MobileMenu from "./MobileMenu";
+
+const CartDialog = dynamic(() => import("../cart/CartDialog"), {
+  ssr: false,
+});
 
 export const links = [
   { href: "/", label: "HOME" },
@@ -92,12 +95,7 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
           </nav>
 
           {/* Shopping Cart */}
-          <button
-            className="cursor-pointer rounded-md p-2 text-white duration-300 ease-in-out hover:text-[#D87D4A]"
-            aria-label="Open shopping cart"
-          >
-            <ShoppingCart className="h-6 w-6" />
-          </button>
+          <CartDialog />
         </div>
         <div className="relative -bottom-8 left-0 border-b border-b-white/20"></div>
       </header>
