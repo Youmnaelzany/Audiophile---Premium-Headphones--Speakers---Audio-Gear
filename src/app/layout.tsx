@@ -62,8 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.className} antialiased`}>
+    <html lang="en">
+      <body
+        className={`${manrope.className} antialiased`}
+        suppressHydrationWarning
+      >
         <CartProvider>
           <HeaderWrapper />
           <main id="main-content" className="mx-auto min-h-screen max-w-360">

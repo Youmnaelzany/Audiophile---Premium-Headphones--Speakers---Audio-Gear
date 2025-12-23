@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import { ShoppingCart } from "lucide-react";
 
 import { useCart } from "@/components/cart/CartProvider";
@@ -45,7 +46,7 @@ const CartDialog = () => {
 
       <DialogContent className="w-[95%] max-w-md rounded-lg p-6">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between">
+          <DialogTitle className="flex items-center justify-between pt-6">
             <span className="font-bold tracking-widest uppercase">
               Cart ({items.length})
             </span>
