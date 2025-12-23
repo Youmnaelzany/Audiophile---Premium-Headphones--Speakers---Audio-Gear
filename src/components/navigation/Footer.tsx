@@ -6,6 +6,12 @@ import { usePathname } from "next/navigation";
 
 import { FaInstagram, FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 import { links } from "./Header";
 
 const Footer = () => {
@@ -59,16 +65,43 @@ const Footer = () => {
         {/* Description paragraph */}
         <div className="w-full lg:flex lg:items-end lg:justify-between lg:gap-8">
           <p className="text-[0.9375rem] leading-6.25 font-medium tracking-normal opacity-50 lg:w-[540px]">
-            Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we&apos;re open 7 days a week.
+            Audiophile is an all in one stop to fulfill your audio needs.
+            We&apos;re a small team of music lovers and sound specialists who
+            are devoted to helping you get the most out of personal audio. Come
+            and visit our demo facility - we&apos;re open 7 days a week.
           </p>
 
-          <div className="hidden items-center gap-4 lg:flex">
-            <FaSquareFacebook className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
-            <FaXTwitter className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
-            <FaInstagram className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+          <div className="hidden items-center gap-6 lg:flex">
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href={"#"}>
+                  <FaSquareFacebook className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Facebook</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href={"#"}>
+                  <FaXTwitter className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Twitter</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href={"#"}>
+                  <FaInstagram className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Instagram</p>
+              </TooltipContent>
+            </Tooltip>{" "}
           </div>
         </div>
 
@@ -77,10 +110,37 @@ const Footer = () => {
           <h4 className="text-[0.9375rem] leading-6.25 font-bold tracking-normal opacity-50">
             Copyright 2021. All Rights Reserved
           </h4>
-          <div className="flex items-center gap-4 lg:hidden">
-            <FaSquareFacebook className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
-            <FaXTwitter className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
-            <FaInstagram className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+          <div className="flex items-center gap-6 lg:hidden">
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href={"#"}>
+                  <FaSquareFacebook className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Facebook</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href={"#"}>
+                  <FaXTwitter className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Twitter</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href={"#"}>
+                  <FaInstagram className="size-7 cursor-pointer text-white transition-colors duration-300 ease-in-out hover:text-[#d87a4a]" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Instagram</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
         </div>
       </div>

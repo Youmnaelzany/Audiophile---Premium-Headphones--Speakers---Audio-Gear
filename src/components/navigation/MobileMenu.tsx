@@ -3,7 +3,6 @@ import { Logs } from "lucide-react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -20,11 +19,9 @@ const MobileMenu = () => {
         </SheetTrigger>
         <SheetContent side="top" className="py-16">
           <SheetHeader>
-            <SheetTitle></SheetTitle>
-            <SheetDescription>
-              <CategoriesCard />
-            </SheetDescription>
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           </SheetHeader>
+          <CategoriesCard />
         </SheetContent>
       </Sheet>
     </div>

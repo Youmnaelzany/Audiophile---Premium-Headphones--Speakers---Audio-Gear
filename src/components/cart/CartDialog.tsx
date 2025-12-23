@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import { ShoppingCart } from "lucide-react";
 
@@ -16,8 +17,8 @@ import {
 } from "@/components/ui/dialog";
 
 const CartDialog = () => {
-  const { items, removeFromCart, clearCart, increaseQty, decreaseQty } =
-    useCart();
+  const [isOpen, setIsOpen] = useState(false);
+  const { items, clearCart, increaseQty, decreaseQty } = useCart();
 
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -25,7 +26,7 @@ const CartDialog = () => {
   );
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <button
           type="button"
@@ -120,7 +121,12 @@ const CartDialog = () => {
               </span>
             </div>
 
-            <Button asChild variant="mainOne" className="w-full">
+            <Button
+              asChild
+              variant="mainOne"
+              className="w-full"
+              onClick={() => setIsOpen(false)}
+            >
               <Link href="/checkout" aria-label="Proceed to checkout">
                 Checkout
               </Link>

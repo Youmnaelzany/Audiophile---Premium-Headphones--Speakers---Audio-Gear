@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type CartItem = {
   id: string;
@@ -27,8 +27,36 @@ export const useCart = () => {
   return ctx;
 };
 
+const CART_STORAGE_KEY = "audiophile_cart";
+
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Load cart from localStorage on initial render
+  useEffect(() => {
+    try {
+      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+      if (savedCart) {
+        setItems(JSON.parse(savedCart));
+      }
+    } catch (error) {
+      console.error("Failed to load cart from localStorage", error);
+    } finally {
+      setIsInitialized(true);
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    if (isInitialized) {
+      try {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+      } catch (error) {
+        console.error("Failed to save cart to localStorage", error);
+      }
+    }
+  }, [items, isInitialized]);
 
   const addToCart = (item: CartItem) => {
     setItems((prev) => {
